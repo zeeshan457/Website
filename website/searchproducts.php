@@ -1,0 +1,221 @@
+<?php
+session_start();
+
+//check user login
+if (!isset($_SESSION['username'])) {
+  echo '<script type="text/javascript">
+  alert("You are not logged in!");
+  window.location=\'index.php\';
+  </script>';
+}
+?>
+
+<?php
+require_once ("connectDB.php");
+//check search name
+if(isset($_REQUEST['submit'])) {
+    $search = $_POST['search'];
+}
+else{
+}
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+  <!--link JS & CSS-->
+  <link href="CSS_files\search.css" rel="stylesheet" type="text/css">
+
+
+  <script src="JS_folder\index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--JS validation-->
+  <script type = "text/javascript">
+  
+  function validateForm() {
+  //no input fields validation
+  if( document.myForm.search.value == "") {
+     alert( "Please type a product name!" );
+     document.myForm.search.focus() ;
+     return false;
+  }
+  return( true );
+  }
+  </script>   
+
+<title>Homepage</title>
+</head>
+
+<body>
+  <nav>
+    <!--logo-->
+    <div class="logo">
+      <img src="Assets\manchester united lgo.gif" />
+  </div>
+    <!--Header-->
+    <div class="header">
+      ZSPORTS
+    </div>
+    <!--icons-->
+    <label for="btn" class="icon">
+      <span class="fa fa-bars"></span>
+    </label>
+
+
+
+    <!--Home button-->
+    <input type="checkbox" id="btn">
+    <ul>
+      <li><a href="Homepage.php">Home</a></li>
+      <!--clothing button-->
+      <li>
+        <label for="btn-1" class="show">Clothing +</label>
+        <a href="#">Clothing</a>
+        <input type="checkbox" id="btn-1">
+        <ul>
+          <li><a href="Jackets.php">Jackets</a></li>
+          <li><a href="Joggers.php">Joggers</a></li>
+          <li><a href="Shirts.php">Shirts</a></li>
+          <li><a href="Trainers.php">Trainers</a></li>
+        </ul>
+      </li>
+      <!--More button-->
+      <li>
+        <label for="btn-2" class="show">More +</label>
+        <a href="#">More</a>
+        <input type="checkbox" id="btn-2">
+        <ul>
+          <li><a href="Sports_Equipment.php">Equipment </a></li>
+          <li><a href="Sports_Accessories.php">Accessories</a></li>
+        </ul>
+      </li>
+      <!--search button-->
+      <li><a href="searchproducts.php">Search</a></li>
+      <!--contact button-->
+      <li><a href="Contact.php">Contact</a></li>
+      <!--logout-->
+      <li><a href="logout.php">Logout</a></li>
+    </ul>
+  </nav>
+
+
+  <div class = "container-caption">
+  <caption>Search Products</caption>
+</div>
+
+
+ <!--search form-->
+  <form name="myForm" action="searchproducts.php" onsubmit="return validateForm()" method="post">
+  <div class="container">
+  <textarea id = "search" name = "search" placeholder = "type a product name here" style = "height: 50px"></textarea>
+  <button class="submit" type="submit" name="submit">Search</button>
+
+  </form>
+</div>
+
+
+
+
+
+
+<!--table-->
+<table id="products">
+<tr>
+<th>Sr#</th>
+    <th>Product Name</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Price</th>
+  </tr>
+  </div>
+
+  <?php
+      //variables 
+      $count = 0;
+      if(isset($_REQUEST['submit'])) {
+        $search = $_POST['search'];
+    
+      $sql = "SELECT * FROM product_table WHERE name = '$search'";
+
+      $result= mysqli_query($conn, $sql);
+      
+     
+                   if($result == false){
+                    echo"error";
+                   } else {
+                  echo str_repeat("&nbsp;", 2);
+
+              
+
+                  //while loop to print the table and display contents from database. 
+                  while ($row = mysqli_fetch_array($result)) {
+                  $count++;
+                          
+                     ?>
+                     
+                     <tr>
+                     <td>  <?php       
+                            echo $count;
+                             ?>  </td>
+                            <td>  <?php       
+                            echo $row['name'];
+                             ?>  </td>
+                            <td>        
+                            <img src="<?= $row['image']?>" width="200px" height="200px"/>
+                               </td>  
+                               <td>  <?php       
+                            echo $row['description'];
+                             ?>  </td> 
+
+                                 <td>  <?php       
+                            echo $row['category'];
+                             ?>  </td> 
+
+                                 <td>  <?php       
+                            echo $row['price'];
+                             ?>  </td>
+                     </tr>
+                     <?php
+     
+                }
+                }
+              }
+           ?>
+      <tr>
+</tr>
+</table>
+
+
+
+
+
+  
+  <!--footer-->
+  <footer>
+    <div class="footer-content">
+      <h3>ZSPORTS</h3>
+      <p>Please follow our social media to stay updated on our new products, also please provide some feedback!</p>
+      <ul class="socials">
+        <li><a href="https://en-gb.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://myaccount.google.com/intro/profile"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a></li>
+        <li><a href="https://uk.linkedin.com/"><i class="fa fa-linkedin-square"></i></a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>copyright &copy;2020 ZSPORTS. designed by <span>Zeeshan</span></p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

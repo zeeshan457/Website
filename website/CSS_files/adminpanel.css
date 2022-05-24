@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+margin: 0;
+padding: 0;
+user-select: none;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+
+/*body / animation gradient*/
+body{
+color: #fff;
+width: 100%;
+height: 100vh;
+background: linear-gradient(-45deg, #000000, #5c0828, #000000, #4b0339);
+background-size: 400% 400%;
+animation: change 10s ease-in-out infinite;
+min-height:1500px;
+
+}
+
+/*nav bar*/
+nav{
+background: #000000;
+position:sticky;
+}
+nav:after{
+content: '';
+clear: both;
+display: table;
+}
+
+/*logo*/
+.logo {
+  float: left;
+  height: 70px;
+  width: 90px;
+  animation: transition  2s;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+
+/*nav header font*/
+nav .header{
+float: left;
+position: relative;
+color: rgb(255, 255, 255);
+font-size: 27px;
+font-weight: 600;
+line-height: 70px;
+padding-left: 60px;
+right: 40px;
+}
+
+/*nav buttons*/
+nav ul{
+float: right;
+margin-right: 40px;
+list-style: none;
+position: relative;
+}
+nav ul li{
+display: inline-block;
+background: #000000;
+margin: 0 5px;
+}
+nav ul li a{
+color: rgb(255, 255, 255);
+line-height: 70px;
+text-decoration: none;
+font-size: 18px;
+padding: 8px 15px;
+}
+nav ul li a:hover{
+  color: rgb(185, 182, 182);
+  border-radius: 5px;
+  
+  }
+  nav ul ul li a:hover{
+   box-shadow: none;
+  }
+  nav ul ul ul{
+    border-top: none;
+  }
+  nav ul li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  }
+  nav ul ul li{
+  position: relative;
+  margin: 0px;
+  width: 150px;
+  float: none;
+  display: list-item;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  }
+  nav ul ul li a{
+    line-height: 50px;
+  }
+  nav ul ul ul li{
+  position: relative;
+  top: -60px;
+  left: 150px;
+  }
+
+
+
+/*content*/
+.content{
+z-index: -1;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+text-align: center;
+}
+
+
+/*header middle*/
+header{
+font-size: 35px;
+font-weight: 600;
+padding: 10px 0;
+border-radius: 25px;
+border: 4px solid #ffffff;
+padding: 20px;
+animation: transition  2s;
+top: 100px;
+margin-top: 50px;
+}
+/*information*/
+p{
+font-size: 20px;
+font-weight: 600;
+margin-top: 10px;
+animation: transition  2s;
+padding: 20px 0;
+border-radius: 25px;
+border: 4px solid #ffffff;
+padding: 20px;
+}
+
+/*image home*/
+.midimage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+/* Clear the floats after image */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/*  form */
+textbox[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px; 
+  border: 3px solid rgb(0, 0, 0); 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical;
+  animation: transition  2s;
+
+}
+
+
+button[type=submit] {
+  background-color: #3d0763;
+  color: rgb(255, 255, 255);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgb(255, 255, 255); 
+  position:static;
+  left: 200px;
+  animation: transition  2s;
+
+}
+
+button[type=submit]:hover {
+  background-color: #4CAF50;
+  border: 1px solid rgb(255, 255, 255); 
+
+}
+
+.container {
+  border-radius: 5px;
+  padding: 50px;
+  background: linear-gradient(-45deg, #000000, #1f042c, #000000, #1f042c);
+  border: 1px solid rgb(255, 255, 255); 
+  background-size: 400% 400%;
+  animation: change 10s ease-in-out infinite;
+  position: static;
+  top: 100px;
+  right: 0;
+  animation: transition  2s;
+
+}
+.container-caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+  border: 1px solid #ffffff;
+  padding: 20px;
+  background: linear-gradient(-45deg, #000000, #1f042c, #000000, #1f042c);
+  background-size: 200% 200%;
+  animation: change 10s ease-in-out infinite;
+  text-align: center;
+  position:static;
+  top: 100px;
+  animation: transition  2s;
+
+
+}
+
+
+
+
+
+
+/* animation - transition */
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+  }
+
+@keyframes transition {
+  from{
+  opacity: 0;
+  transform: translate(-30px);
+  
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

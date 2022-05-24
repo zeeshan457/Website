@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+margin: 0;
+padding: 0;
+user-select: none;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+/*body / animation gradient*/
+body{
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-45deg, #7a2106, #960c41, #29004b, #ff0000);
+  background-size: 400% 400%;
+  animation: change 10s ease-in-out infinite;
+  min-height:1500px;
+  
+  }
+
+
+/* contact form */
+textbox[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px; 
+  border: 3px solid rgb(0, 0, 0); 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical;
+
+}
+
+
+button[type=submit] {
+  background-color: #3d0763;
+  color: rgb(255, 255, 255);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgb(255, 255, 255); 
+  position:static;
+  left: 200px;
+  animation: transition  2s;
+
+}
+
+button[type=submit]:hover {
+  background-color: #4CAF50;
+  border: 1px solid rgb(255, 255, 255); 
+
+}
+
+.container {
+  border-radius: 5px;
+  padding: 50px;
+  background: linear-gradient(-45deg, #000000, #1f042c, #000000, #1f042c);
+  border: 1px solid rgb(255, 255, 255); 
+  background-size: 400% 400%;
+  animation: change 10s ease-in-out infinite;
+  position: static;
+  top: 100px;
+  right: 0;
+  animation: transition  2s;
+
+}
+.container-caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+  border: 1px solid #ffffff;
+  padding: 20px;
+  background: linear-gradient(-45deg, #000000, #1f042c, #000000, #1f042c);
+  background-size: 200% 200%;
+  animation: change 10s ease-in-out infinite;
+  text-align: center;
+  position:static;
+  top: 100px;
+  animation: transition  2s;
+
+
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+  }
+
+
+/*nav bar*/
+nav{
+  background: #000000;
+  position:sticky;
+  }
+  nav:after{
+  content: '';
+  clear: both;
+  display: table;
+  }
+  
+  /*logo*/
+  .logo {
+    float: left;
+    height: 70px;
+    width: 90px;
+    animation: transition  2s;
+  }
+  .logo img {
+    width: 100%;
+    height: auto;
+  }
+  
+  
+  
+  
+  /*nav header font*/
+  nav .header{
+  float: left;
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 70px;
+  padding-left: 60px;
+  right: 40px;
+  }
+  
+  /*nav buttons*/
+  nav ul{
+  float: right;
+  margin-right: 40px;
+  list-style: none;
+  position: relative;
+  }
+  nav ul li{
+  display: inline-block;
+  background: #000000;
+  margin: 0 5px;
+  }
+  nav ul li a{
+  color: rgb(255, 255, 255);
+  line-height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 15px;
+  }
+  nav ul li a:hover{
+  color: rgb(185, 182, 182);
+  border-radius: 5px;
+  
+  }
+  nav ul ul li a:hover{
+   box-shadow: none;
+  }
+  nav ul ul{
+  position: absolute;
+  top: 90px;
+  border-top: 1px solid rgb(255, 255, 255);
+  opacity: 0;
+  visibility: hidden;
+  transition: top .3s;
+  }
+  nav ul ul ul{
+    border-top: none;
+  }
+  nav ul li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  }
+  nav ul ul li{
+  position: relative;
+  margin: 0px;
+  width: 150px;
+  float: none;
+  display: list-item;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  }
+  nav ul ul li a{
+    line-height: 50px;
+  }
+  nav ul ul ul li{
+  position: relative;
+  top: -60px;
+  left: 150px;
+  }
+  .show,.icon,input{
+  display:none;
+  }
+  .fa-plus{
+  font-size: 15px;
+  margin-left: 40px;
+  }
+  /*media*/
+  @media all and (max-width: 968px) {
+    nav ul{
+    margin-right: 0px;
+    float: left;
+    }
+  
+    /*nav minimised*/
+    nav .header{
+    padding-left: 50px;
+    }
+    .show + a, ul{
+    display: none;
+    }
+    nav ul li,nav ul ul li{
+    display: block;
+    width: 100%;
+    }
+    nav ul li a:hover{
+    box-shadow: none;
+    }
+    .show{
+    display: block;
+    color: white;
+    font-size: 18px;
+    padding: 0 20px;
+    line-height: 70px;
+    cursor: pointer;
+    margin-left: -4px;
+    }
+    .show:hover{
+      color: rgb(185, 182, 182);
+    }
+    .icon{
+    display: block;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    line-height: 70px;
+    cursor: pointer;
+    font-size: 25px;
+    }
+  
+    nav ul ul{
+    top: 70px;
+    border-top: 0px;
+    float: none;
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    }
+    nav ul ul a{
+  padding-left: 40px;
+    }
+    nav ul ul ul a{
+  padding-left: 80px;
+    }
+    nav ul ul ul li{
+  position: static;
+    }
+    [id^=btn]:checked + ul{
+  display: block;
+    }
+    nav ul ul li{
+  border-bottom: 0px;
+    }
+    span.cancel:before{
+  content: '\f00d';
+    }
+  }
+
+
+  /*footer*/
+footer{
+  position:absolute;
+  bottom: -1000px;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0);
+  height: 300px;
+  width: 100vw;
+  font-family: "Open Sans";
+  padding-top: 40px;
+  color: #fff;
+  border: 1px solid #ccc;
+  
+  }
+  .footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  }
+  .footer-content h3{
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+  }
+  .footer-content p{
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+  }
+  .socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+  }
+  .socials li{
+  margin: 0 10px;
+  }
+  .socials a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  }
+  .socials a i{
+  font-size: 1.1rem;
+  transition: color .4s ease;
+  
+  }
+  .socials a:hover i{
+  color: aqua;
+  }
+  
+  .footer-bottom{
+  background: rgb(0, 0, 0);
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+  border: 1px solid #ccc;
+  
+    
+  }
+  .footer-bottom p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+  }
+  .footer-bottom span{
+  text-transform: uppercase;
+  opacity: .4;
+  font-weight: 200;
+  }
